@@ -13,13 +13,16 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class FeedbackController extends AbstractController
 {
+    // Déclaration de la propriété $entityManager de type EntityManagerInterface,
+    // qui sera utilisée pour interagir avec la base de données.
     private EntityManagerInterface $entityManager;
 
+    // Constructeur de la classe, utilisé pour injecter la dépendance $entityManager.
     public function __construct(EntityManagerInterface $entityManager)
     {
+        // Initialiser la propriété $entityManager avec l'instance fournie lors de la création de l'objet.
         $this->entityManager = $entityManager;
     }
-
     /**
      * @Route("/feedback", name="app_feedback")
      */
