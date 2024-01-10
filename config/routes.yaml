@@ -8,4 +8,12 @@ accueil:
      path: /accueil controller:App\Controller\AccueilController::index 
      
 contact_submit:
-     path: /contact controller:App\Controller\ContactController::submit methods:POST 
+     path: /contact controller:App\Controller\ContactController::submit methods:POST
+
+show_template:
+  path: /showtemplate
+  controller: App\Controller\AcceuilController::showTemplate
+
+app_feedback:
+  path: '/feedback'
+  controller: 'App\Controller\FeedbackController::index'

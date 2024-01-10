@@ -1,0 +1,14 @@
+
+<body>
+<h2>Liste des clients</h2>
+<!-- Ici, vous pouvez ajouter une structure pour afficher les clients -->
+<ul>
+    {% for customer in customers %}
+        <li>{{ customer }}</li>
+    {% else %}
+        <li>Aucun client trouvé.</li>
+    {% endfor %}
+</ul>
+</body>
+
+

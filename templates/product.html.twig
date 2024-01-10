@@ -1,0 +1,15 @@
+{# template/product.html.twig #}
+
+<h2>Liste de produit</h2>
+
+<ul>
+    {% for product in products %}
+        <li>{{ loop.index }} - {{ product.name }} à {{ product.price }} euros</li>
+        {% if loop.last %}
+            <p>Ceci est le dernier produit de la liste</p>
+        {% endif %}
+    {% else %}
+        <li>Aucun Produit trouvé.</li>
+    {% endfor %}
+
+</ul>
