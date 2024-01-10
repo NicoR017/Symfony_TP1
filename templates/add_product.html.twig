@@ -1,0 +1,20 @@
+{# templates/add_product.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un produit{% endblock %}
+
+{% block body %}
+    <h1>Ajouter un produit</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.nom) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.Prix) }}
+
+    <button type="submit">Ajouter</button>
+
+    {{ form_end(form) }}
+    <a href="{{ path('products_list') }}" class="btn btn-primary">Liste des produits</a> {# Assurez-vous que le nom de la route correspond à la route pour la liste des produits #}
+
+{% endblock %}

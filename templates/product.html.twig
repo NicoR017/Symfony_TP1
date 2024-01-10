@@ -1,15 +1,27 @@
-{# template/product.html.twig #}
+{# templates/product.html.twig #}
 
-<h2>Liste de produit</h2>
+{% extends 'base.html.twig' %}
 
-<ul>
-    {% for product in products %}
-        <li>{{ loop.index }} - {{ product.name }} à {{ product.price }} euros</li>
-        {% if loop.last %}
-            <p>Ceci est le dernier produit de la liste</p>
-        {% endif %}
-    {% else %}
-        <li>Aucun Produit trouvé.</li>
-    {% endfor %}
+{% block title %}Liste de produits{% endblock %}
 
-</ul>
+{% block body %}
+    <div class="container mt-5">
+        <h2>Liste de produits</h2>
+
+        <ul class="list-group">
+            {% for product in products %}
+                <li class="list-group-item">
+                    <span class="fw-bold">{{ product.nom }}</span> à <span class="text-primary">{{ product.Prix }} euros</span>
+                    <a href="{{ path('app_feedback', {'id': product.id}) }}" class="btn btn-success ms-2">Donner un feedback</a>
+                </li>
+                {% if loop.last %}
+                    <p class="mt-3">Ceci est le dernier produit de la liste</p>
+                {% endif %}
+            {% else %}
+                <li class="list-group-item">Aucun Produit trouvé.</li>
+            {% endfor %}
+        </ul>
+
+        <a href="{{ path('add_product') }}" class="btn btn-primary mt-3">Ajouter un produit</a>
+    </div>
+{% endblock %}
