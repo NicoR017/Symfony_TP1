@@ -17,3 +17,15 @@ show_template:
 app_feedback:
   path: '/feedback'
   controller: 'App\Controller\FeedbackController::index'
+
+list_feedbacks:
+  path: '/feedbacksList'
+  controller: 'App\Controller\FeedbackController::listFeedbacks'
+
+edit_feedback:
+  path: '/edit-feedback/{id}'
+  controller: 'App\Controller\FeedbackController::editFeedback'
+
+delete_feedback:
+  path: '/delete-feedback/{id}'
+  controller: 'App\Controller\FeedbackController::deleteFeedback'

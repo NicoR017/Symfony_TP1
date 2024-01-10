@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier le Feedback{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h2>Modifier le Feedback</h2>
+
+        {# Début du formulaire #}
+        {{ form_start(form) }}
+
+        {# Champ pour le nom du client #}
+        {{ form_row(form.nomClient) }}
+
+        {# Champ pour l'email du client #}
+        {{ form_row(form.emailClient) }}
+
+        {# Champ pour la note du produit #}
+        {{ form_row(form.noteProduit) }}
+
+        {# Champ pour les commentaires #}
+        {{ form_row(form.commentaires) }}
+
+        {# Champ pour la date de soumission #}
+        {{ form_row(form.dateSoumission) }}
+
+        {# Fin du formulaire #}
+        {{ form_end(form) }}
+    </div>
+
+    <a href="{{ path('products_list') }}" class="btn btn-primary">Liste des produits</a>
+{% endblock %}

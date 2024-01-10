@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Feedbacks{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h2>Liste des Feedbacks</h2>
+
+        {# Vérifiez si des feedbacks sont disponibles #}
+        {% if feedbacks|length > 0 %}
+            <ul class="list-group">
+                {# Parcourez chaque feedback #}
+                {% for feedback in feedbacks %}
+                    <li class="list-group-item">
+                        <strong>{{ feedback.nomClient }}</strong> ({{ feedback.emailClient }})
+                        <br>
+                        Note : {{ feedback.noteProduit }}
+                        <br>
+                        Commentaires : {{ feedback.commentaires }}
+                        <br>
+                        Date de soumission : {{ feedback.dateSoumission }}
+                        <br>
+                        {# Lien pour modifier le feedback, redirige vers la route 'edit_feedback' avec l'ID du feedback #}
+                        <a href="{{ path('edit_feedback', {'id': feedback.id}) }}" class="btn btn-warning">Modifier le feedback</a>
+                        <br>
+                        {# Lien pour supprimer le feedback, redirige vers la route 'delete_feedback' avec l'ID du feedback
+                           Demande une confirmation avant la suppression #}
+                        <a href="{{ path('delete_feedback', {'id': feedback.id}) }}" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce feedback ?')">Supprimer le feedback</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            {# Aucun feedback trouvé #}
+            <p>Aucun feedback trouvé.</p>
+        {% endif %}
+    </div>
+    {# Lien pour revenir à la liste des produits #}
+    <a href="{{ path('products_list') }}" class="btn btn-primary">Liste des produits</a>
+{% endblock %}
